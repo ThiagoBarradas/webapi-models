@@ -42,16 +42,16 @@ Sample - Casting ApiResponse to HttpResponseMessage
 
 public class BaseApiController : ApiController
 {
-	protected HttpResponseMessage CreateResponse(ApiResponse response)
+    protected HttpResponseMessage CreateResponse(ApiResponse response)
     {
-		var response = Request.CreateResponse(apiResponse.StatusCode, apiResponse.Content);
-		apiResponse.Headers.ForEach(header => 
-		{
-			response.Headers.Add(header.Key, header.Value);
-		});
+        var response = Request.CreateResponse(apiResponse.StatusCode, apiResponse.Content);
+        apiResponse.Headers.ForEach(header => 
+        {
+            response.Headers.Add(header.Key, header.Value);
+        });
 
-		return response;
-	}
+        return response;
+    }
 }
 
 public class MyController : BaseApiController
