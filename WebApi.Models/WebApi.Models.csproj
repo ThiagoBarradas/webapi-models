@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Company>Thiago Barradas</Company>
+    <Authors>Thiago Barradas</Authors>
+    <RepositoryType></RepositoryType>
+    <RepositoryUrl>https://github.com/ThiagoBarradas/webapi-models</RepositoryUrl>
+    <PackageTags>models, model, api, webapi, exception, handler, response, message, easily, nancy, asp.net, aspnet</PackageTags>
+    <PackageProjectUrl>https://github.com/ThiagoBarradas/webapi-models</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/ThiagoBarradas/webapi-models/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright>© Thiago Barradas</Copyright>
+    <Description>Models to facilitate implementation and handling successful and error responses in web api.</Description>
+    <PackageIconUrl>https://i.imgur.com/Db13jxp.png</PackageIconUrl>
   </PropertyGroup>
 
 </Project>
