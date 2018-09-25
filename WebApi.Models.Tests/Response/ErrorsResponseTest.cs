@@ -70,5 +70,25 @@ namespace WebApi.Models.Tests.Response
             Assert.NotNull(response.Errors.FirstOrDefault().Property);
             Assert.Equal("property", response.Errors.FirstOrDefault().Property);
         }
+
+        [Fact]
+        public static void AddError_With_ErrorItem_When_Errors_Is_null()
+        {
+            // arrange 
+            var response = new ErrorsResponse();
+            response.Errors = null;
+            var errorItem = new ErrorItemResponse("some test", "property");
+
+            // act
+            response.AddError(errorItem);
+
+            // assert
+            Assert.NotNull(response);
+            Assert.Single(response.Errors);
+            Assert.NotNull(response.Errors.FirstOrDefault().Message);
+            Assert.Equal("some test", response.Errors.FirstOrDefault().Message);
+            Assert.NotNull(response.Errors.FirstOrDefault().Property);
+            Assert.Equal("property", response.Errors.FirstOrDefault().Property);
+        }
     }
 }
