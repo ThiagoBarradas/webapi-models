@@ -90,5 +90,34 @@ namespace WebApi.Models.Tests.Response
             Assert.NotNull(response.Errors.FirstOrDefault().Property);
             Assert.Equal("property", response.Errors.FirstOrDefault().Property);
         }
+
+        [Fact]
+        public static void WithSingleError_With_Message()
+        {
+            // arrange & act
+            var response = ErrorsResponse.WithSingleError("some message");
+            
+            // assert
+            Assert.NotNull(response);
+            Assert.Single(response.Errors);
+            Assert.NotNull(response.Errors.FirstOrDefault().Message);
+            Assert.Equal("some message", response.Errors.FirstOrDefault().Message);
+            Assert.Null(response.Errors.FirstOrDefault().Property);
+        }
+
+        [Fact]
+        public static void WithSingleError_With_Message_And_Property()
+        {
+            // arrange & act
+            var response = ErrorsResponse.WithSingleError("some message", "some property");
+
+            // assert
+            Assert.NotNull(response);
+            Assert.Single(response.Errors);
+            Assert.NotNull(response.Errors.FirstOrDefault().Message);
+            Assert.Equal("some message", response.Errors.FirstOrDefault().Message);
+            Assert.NotNull(response.Errors.FirstOrDefault().Property);
+            Assert.Equal("some property", response.Errors.FirstOrDefault().Property);
+        }
     }
 }

@@ -4,12 +4,9 @@ namespace WebApi.Models.Response
 {
     public class ErrorsResponse
     {
-        public List<ErrorItemResponse> Errors { get; set; }
+        public List<ErrorItemResponse> Errors { get; set; } = new List<ErrorItemResponse>();
 
-        public ErrorsResponse()
-        {
-            this.Errors = new List<ErrorItemResponse>();
-        }
+        public ErrorsResponse() {}
 
         public void AddError(string message)
         {
@@ -29,6 +26,18 @@ namespace WebApi.Models.Response
             }
 
             this.Errors.Add(error);
+        }
+
+        public static ErrorsResponse WithSingleError(string message)
+        {
+            return WithSingleError(message, null);
+        }
+
+        public static ErrorsResponse WithSingleError(string message, string property)
+        {
+            var errorsResponse = new ErrorsResponse();
+            errorsResponse.AddError(message, property);
+            return errorsResponse;
         }
     }
 }
