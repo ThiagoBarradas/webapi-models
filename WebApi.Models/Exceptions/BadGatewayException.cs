@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public BadGatewayException()
             : base(CurrentStatusCode) { }
 
-        public BadGatewayException(string message)
-            : base(CurrentStatusCode, message) { }
+        public BadGatewayException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public BadGatewayException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

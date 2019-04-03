@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public ServiceUnavailableException()
             : base(CurrentStatusCode) { }
 
-        public ServiceUnavailableException(string message)
-            : base(CurrentStatusCode, message) { }
+        public ServiceUnavailableException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public ServiceUnavailableException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

@@ -11,8 +11,8 @@ namespace WebApi.Models.Exceptions
         public InternalServerErrorException()
             : base(CurrentStatusCode) { }
 
-        public InternalServerErrorException(string message)
-            : base(CurrentStatusCode, message) { }
+        public InternalServerErrorException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public InternalServerErrorException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

@@ -54,13 +54,15 @@ namespace WebApi.Models.Tests.Exceptions
             };
 
             var exceptionWithEmptyCtor = (T)Activator.CreateInstance(type, new object[] { });
-            var exceptionWithMessage = (T)Activator.CreateInstance(type, new object[] { "some message" });
+            var exceptionWithMessage = (T)Activator.CreateInstance(type, new object[] { "some message", null });
+            var exceptionWithMessageAndProperty = (T)Activator.CreateInstance(type, new object[] { "some message", "property" });
             var exceptionWithErrors = (T)Activator.CreateInstance(type, new object[] { errors });
             var exceptionWithMessageAndErrors = (T)Activator.CreateInstance(type, new object[] { errors, "some message" });
 
             // act
             var responseByExceptionWithEmptyCtor = exceptionWithEmptyCtor.ToApiResponse();
             var responseByExceptionWithMessage = exceptionWithMessage.ToApiResponse();
+            var responseByExceptionWithMessageAndProperty = exceptionWithMessageAndProperty.ToApiResponse();
             var responseByExceptionWithErrors = exceptionWithErrors.ToApiResponse();
             var responseByExceptionWithMessageAndErrors = exceptionWithMessageAndErrors.ToApiResponse();
 
@@ -78,16 +80,34 @@ namespace WebApi.Models.Tests.Exceptions
             Assert.NotNull(exceptionWithMessage);
             Assert.NotNull(exceptionWithMessage.Message);
             Assert.Equal("some message", exceptionWithMessage.Message);
-            Assert.Null(exceptionWithMessage.ErrorsResponse);
+            Assert.Single(exceptionWithMessage.ErrorsResponse.Errors);
+            Assert.Equal("some message", exceptionWithMessage.ErrorsResponse.Errors.First().Message);
+            Assert.Null(exceptionWithMessage.ErrorsResponse.Errors.First().Property);
+            Assert.NotNull(exceptionWithMessage.ErrorsResponse);
             Assert.NotNull(responseByExceptionWithMessage);
-            Assert.Null(responseByExceptionWithMessage.Content);
+            Assert.NotNull(responseByExceptionWithMessage.Content);
             Assert.Empty(responseByExceptionWithMessage.Headers);
             Assert.Equal(expectedStatusCode, responseByExceptionWithMessage.StatusCode);
 
+            // assert with message and property 
+            Assert.NotNull(exceptionWithMessageAndProperty);
+            Assert.NotNull(exceptionWithMessageAndProperty.Message);
+            Assert.Equal("some message", exceptionWithMessageAndProperty.Message);
+            Assert.Single(exceptionWithMessageAndProperty.ErrorsResponse.Errors);
+            Assert.Equal("some message", exceptionWithMessageAndProperty.ErrorsResponse.Errors.First().Message);
+            Assert.Equal("property", exceptionWithMessageAndProperty.ErrorsResponse.Errors.First().Property);
+            Assert.NotNull(responseByExceptionWithMessageAndProperty);
+            Assert.NotNull(responseByExceptionWithMessageAndProperty.Content);
+            Assert.Single(((ErrorsResponse)responseByExceptionWithMessageAndProperty.Content).Errors);
+            Assert.Equal("some message", ((ErrorsResponse)responseByExceptionWithMessageAndProperty.Content).Errors.First().Message);
+            Assert.Equal("property", ((ErrorsResponse)responseByExceptionWithMessageAndProperty.Content).Errors.First().Property);
+            Assert.Empty(responseByExceptionWithMessageAndProperty.Headers);
+            Assert.Equal(expectedStatusCode, responseByExceptionWithMessageAndProperty.StatusCode);
+
             // assert with errors
             Assert.NotNull(exceptionWithErrors);
-            Assert.NotNull(exceptionWithEmptyCtor.Message);
-            Assert.Equal(string.Format("An {0} ocurred", expectedStatusCode.ToString()), exceptionWithEmptyCtor.Message);
+            Assert.NotNull(exceptionWithErrors.Message);
+            Assert.Equal(string.Format("An {0} ocurred", expectedStatusCode), exceptionWithErrors.Message);
             Assert.Single(exceptionWithErrors.ErrorsResponse.Errors);
             Assert.Equal("error message", exceptionWithErrors.ErrorsResponse.Errors.First().Message);
             Assert.Equal("error property", exceptionWithErrors.ErrorsResponse.Errors.First().Property);
@@ -101,8 +121,8 @@ namespace WebApi.Models.Tests.Exceptions
 
             // assert with errors and message
             Assert.NotNull(exceptionWithMessageAndErrors);
-            Assert.NotNull(exceptionWithMessage.Message);
-            Assert.Equal("some message", exceptionWithMessage.Message);
+            Assert.NotNull(exceptionWithMessageAndErrors.Message);
+            Assert.Equal("some message", exceptionWithMessageAndErrors.Message);
             Assert.Single(exceptionWithMessageAndErrors.ErrorsResponse.Errors);
             Assert.Equal("error message", exceptionWithMessageAndErrors.ErrorsResponse.Errors.First().Message);
             Assert.Equal("error property", exceptionWithMessageAndErrors.ErrorsResponse.Errors.First().Property);

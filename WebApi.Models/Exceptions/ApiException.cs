@@ -14,10 +14,11 @@ namespace WebApi.Models.Exceptions
             this.StatusCode = statusCode;
         }
 
-        public ApiException(HttpStatusCode statusCode, string message)
+        public ApiException(HttpStatusCode statusCode, string message, string property = null)
             : base(message)
         {
             this.StatusCode = statusCode;
+            this.ErrorsResponse = ErrorsResponse.WithSingleError(message, property);
         }
 
         public ApiException(HttpStatusCode statusCode, ErrorsResponse errorResponse)

@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public RequestedRangeNotSatisfiableException()
             : base(CurrentStatusCode) { }
 
-        public RequestedRangeNotSatisfiableException(string message)
-            : base(CurrentStatusCode, message) { }
+        public RequestedRangeNotSatisfiableException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public RequestedRangeNotSatisfiableException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

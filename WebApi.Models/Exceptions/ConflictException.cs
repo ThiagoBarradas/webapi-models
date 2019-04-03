@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public ConflictException()
             : base(CurrentStatusCode) { }
 
-        public ConflictException(string message)
-            : base(CurrentStatusCode, message) { }
+        public ConflictException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public ConflictException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public GatewayTimeoutException()
             : base(CurrentStatusCode) { }
 
-        public GatewayTimeoutException(string message)
-            : base(CurrentStatusCode, message) { }
+        public GatewayTimeoutException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public GatewayTimeoutException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

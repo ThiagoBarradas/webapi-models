@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public LengthRequiredException()
             : base(CurrentStatusCode) { }
 
-        public LengthRequiredException(string message)
-            : base(CurrentStatusCode, message) { }
+        public LengthRequiredException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public LengthRequiredException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

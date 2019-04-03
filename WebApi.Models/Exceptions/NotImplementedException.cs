@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public NotImplementedException()
             : base(CurrentStatusCode) { }
 
-        public NotImplementedException(string message)
-            : base(CurrentStatusCode, message) { }
+        public NotImplementedException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public NotImplementedException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

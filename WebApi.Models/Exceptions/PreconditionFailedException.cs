@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public PreconditionFailedException()
             : base(CurrentStatusCode) { }
 
-        public PreconditionFailedException(string message)
-            : base(CurrentStatusCode, message) { }
+        public PreconditionFailedException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public PreconditionFailedException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

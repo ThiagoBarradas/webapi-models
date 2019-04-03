@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public BadRequestException()
             : base(CurrentStatusCode) { }
 
-        public BadRequestException(string message)
-            : base(CurrentStatusCode, message) { }
+        public BadRequestException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public BadRequestException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

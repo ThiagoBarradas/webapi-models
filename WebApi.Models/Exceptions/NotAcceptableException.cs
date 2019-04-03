@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public NotAcceptableException()
             : base(CurrentStatusCode) { }
 
-        public NotAcceptableException(string message)
-            : base(CurrentStatusCode, message) { }
+        public NotAcceptableException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public NotAcceptableException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

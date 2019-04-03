@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public UnauthorizedException()
             : base(CurrentStatusCode) { }
 
-        public UnauthorizedException(string message)
-            : base(CurrentStatusCode, message) { }
+        public UnauthorizedException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public UnauthorizedException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

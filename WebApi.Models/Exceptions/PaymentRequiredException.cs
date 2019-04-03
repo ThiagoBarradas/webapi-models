@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public PaymentRequiredException()
             : base(CurrentStatusCode) { }
 
-        public PaymentRequiredException(string message)
-            : base(CurrentStatusCode, message) { }
+        public PaymentRequiredException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public PaymentRequiredException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

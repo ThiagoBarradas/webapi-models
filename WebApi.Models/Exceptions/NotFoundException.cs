@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public NotFoundException()
             : base(CurrentStatusCode) { }
 
-        public NotFoundException(string message)
-            : base(CurrentStatusCode, message) { }
+        public NotFoundException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public NotFoundException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

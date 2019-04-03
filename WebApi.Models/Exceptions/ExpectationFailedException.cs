@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public ExpectationFailedException()
             : base(CurrentStatusCode) { }
 
-        public ExpectationFailedException(string message)
-            : base(CurrentStatusCode, message) { }
+        public ExpectationFailedException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public ExpectationFailedException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

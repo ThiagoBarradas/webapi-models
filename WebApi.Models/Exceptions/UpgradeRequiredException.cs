@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public UpgradeRequiredException()
             : base(CurrentStatusCode) { }
 
-        public UpgradeRequiredException(string message)
-            : base(CurrentStatusCode, message) { }
+        public UpgradeRequiredException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public UpgradeRequiredException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

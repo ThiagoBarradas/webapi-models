@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public ProxyAuthenticationRequiredException()
             : base(CurrentStatusCode) { }
 
-        public ProxyAuthenticationRequiredException(string message)
-            : base(CurrentStatusCode, message) { }
+        public ProxyAuthenticationRequiredException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public ProxyAuthenticationRequiredException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

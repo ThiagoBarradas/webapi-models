@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public MethodNotAllowedException()
             : base(CurrentStatusCode) { }
 
-        public MethodNotAllowedException(string message)
-            : base(CurrentStatusCode, message) { }
+        public MethodNotAllowedException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public MethodNotAllowedException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

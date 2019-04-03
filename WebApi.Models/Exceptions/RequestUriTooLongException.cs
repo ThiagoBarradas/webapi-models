@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public RequestUriTooLongException()
             : base(CurrentStatusCode) { }
 
-        public RequestUriTooLongException(string message)
-            : base(CurrentStatusCode, message) { }
+        public RequestUriTooLongException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public RequestUriTooLongException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

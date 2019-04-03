@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public UnsupportedMediaTypeException()
             : base(CurrentStatusCode) { }
 
-        public UnsupportedMediaTypeException(string message)
-            : base(CurrentStatusCode, message) { }
+        public UnsupportedMediaTypeException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public UnsupportedMediaTypeException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

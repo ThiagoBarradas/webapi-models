@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public RequestEntityTooLargeException()
             : base(CurrentStatusCode) { }
 
-        public RequestEntityTooLargeException(string message)
-            : base(CurrentStatusCode, message) { }
+        public RequestEntityTooLargeException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public RequestEntityTooLargeException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

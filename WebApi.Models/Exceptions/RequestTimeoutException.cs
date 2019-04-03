@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public RequestTimeoutException()
             : base(CurrentStatusCode) { }
 
-        public RequestTimeoutException(string message)
-            : base(CurrentStatusCode, message) { }
+        public RequestTimeoutException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public RequestTimeoutException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

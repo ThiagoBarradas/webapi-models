@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public GoneException()
             : base(CurrentStatusCode) { }
 
-        public GoneException(string message)
-            : base(CurrentStatusCode, message) { }
+        public GoneException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public GoneException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

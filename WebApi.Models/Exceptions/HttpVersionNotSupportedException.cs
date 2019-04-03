@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public HttpVersionNotSupportedException()
             : base(CurrentStatusCode) { }
 
-        public HttpVersionNotSupportedException(string message)
-            : base(CurrentStatusCode, message) { }
+        public HttpVersionNotSupportedException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public HttpVersionNotSupportedException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }

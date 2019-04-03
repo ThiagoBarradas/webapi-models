@@ -10,8 +10,8 @@ namespace WebApi.Models.Exceptions
         public ForbiddenException()
             : base(CurrentStatusCode) { }
 
-        public ForbiddenException(string message)
-            : base(CurrentStatusCode, message) { }
+        public ForbiddenException(string message, string property = null)
+            : base(CurrentStatusCode, message, property) { }
         
         public ForbiddenException(ErrorsResponse errorsResponse)
             : base(CurrentStatusCode, errorsResponse) { }
