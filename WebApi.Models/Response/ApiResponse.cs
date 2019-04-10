@@ -17,10 +17,11 @@ namespace WebApi.Models.Response
 
         public IDictionary<string, string> Headers { get; set; }       
 
-        public static ApiResponse OK()
+        public static ApiResponse OK(object content = null)
         {
             return new ApiResponse
             {
+                Content = content,
                 StatusCode = HttpStatusCode.OK
             };
         }

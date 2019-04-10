@@ -21,6 +21,20 @@ namespace WebApi.Models.Tests.Response
         }
 
         [Fact]
+        public static void OK_Should_Return_OKResponse_With_Content()
+        {
+            // arrange & act
+            var response = ApiResponse.OK("test");
+
+            // assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.NotNull(response.Content);
+            Assert.Equal("test", response.Content.ToString());
+            Assert.Empty(response.Headers);
+        }
+
+        [Fact]
         public static void Created_Should_Return_CreatedResponse()
         {
             // arrange & act
