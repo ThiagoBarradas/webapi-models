@@ -49,6 +49,11 @@ namespace WebApi.Models.Helpers
 
         public static ApiResponse ToApiResponse(this ApiException exception)
         {
+            if (exception is PermanentRedirectException)
+            {
+                return ToRedirectResponse(HttpStatusCode.Redirect, ((PermanentRedirectException) exception).Location);
+            }
+
             return ToApiResponse(exception.ErrorsResponse, exception.StatusCode, null);
         }
     }
