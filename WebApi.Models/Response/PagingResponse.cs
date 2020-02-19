@@ -8,6 +8,10 @@ namespace WebApi.Models.Response
         {
         }
 
+        public PagingResponse(int page, int size, long totalItems = 0) :
+            this(new ListRequest { Page = page, Size = size }, totalItems)
+        { }
+
         public PagingResponse(ListRequest request, long totalItems = 0)
         {
             if (request != null)
