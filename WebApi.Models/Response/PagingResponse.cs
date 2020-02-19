@@ -27,9 +27,9 @@ namespace WebApi.Models.Response
 
         public int Size { get; set; } = 10;
 
-        public int TotalItems { get; set; }
+        public long TotalItems { get; set; }
 
-        public int TotalPages { get; set; }
+        public long TotalPages { get; set; }
 
         public bool HasNextPage => this.TotalPages > this.Page;
     }
