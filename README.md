@@ -1,6 +1,6 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a99f7ad5096a457db5d6d13a9cfd0de6)](https://www.codacy.com/app/ThiagoBarradas/webapi-models?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ThiagoBarradas/webapi-models&amp;utm_campaign=Badge_Grade)
-[![Build status](https://ci.appveyor.com/api/projects/status/qmkgowvbp97a4tk4/branch/master?svg=true)](https://ci.appveyor.com/project/ThiagoBarradas/webapi-models/branch/master)
-[![codecov](https://codecov.io/gh/ThiagoBarradas/webapi-models/branch/master/graph/badge.svg)](https://codecov.io/gh/ThiagoBarradas/webapi-models)
+[![Build Status](https://barradas.visualstudio.com/Contributions/_apis/build/status/NugetPackage/WebApi%20Models?branchName=develop)](https://barradas.visualstudio.com/Contributions/_build/latest?definitionId=18&branchName=develop)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ThiagoBarradas_webapi-models&metric=alert_status)](https://sonarcloud.io/dashboard?id=ThiagoBarradas_webapi-models)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ThiagoBarradas_webapi-models&metric=coverage)](https://sonarcloud.io/dashboard?id=ThiagoBarradas_webapi-models)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/WebApi.Models.svg)](https://www.nuget.org/packages/WebApi.Models/)
 [![NuGet Version](https://img.shields.io/nuget/v/WebApi.Models.svg)](https://www.nuget.org/packages/WebApi.Models/)
 
