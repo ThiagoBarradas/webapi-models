@@ -97,7 +97,7 @@ namespace WebApi.Models.Tests.Helpers
                 ResponseHelper.ToRedirectResponse(HttpStatusCode.OK, "http://www.google.com"));
 
             // assert
-            Assert.Equal("Specified argument was out of the range of valid values.\r\nParameter name: statusCode", ex.Message);
+            Assert.Equal("Specified argument was out of the range of valid values.\nParameter name: statusCode", ex.Message.Replace("\r", ""));
         }
 
         [Fact]
@@ -109,7 +109,7 @@ namespace WebApi.Models.Tests.Helpers
                 ResponseHelper.ToRedirectResponse(HttpStatusCode.InternalServerError, "http://www.google.com"));
 
             // assert
-            Assert.Equal("Specified argument was out of the range of valid values.\r\nParameter name: statusCode", ex.Message);
+            Assert.Equal("Specified argument was out of the range of valid values.\nParameter name: statusCode", ex.Message.Replace("\r",""));
         }
     }
 
