@@ -1,22 +1,32 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Models", "WebApi.Models\WebApi.Models.csproj", "{8A55C03D-E4DD-49AD-A507-0E1942C518B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Models", "WebApi.Models\WebApi.Models.csproj", "{8A55C03D-E4DD-49AD-A507-0E1942C518B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Models.Tests", "WebApi.Models.Tests\WebApi.Models.Tests.csproj", "{078879A5-2AA9-4F8F-80BD-F3E7099031D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Models.Tests", "WebApi.Models.Tests\WebApi.Models.Tests.csproj", "{078879A5-2AA9-4F8F-80BD-F3E7099031D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6BBD56DD-B075-48D8-ABCC-3151F0C4B3E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{40B13988-6E1D-434D-8B4E-0991F12817FF}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		appveyor.yml = appveyor.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{FC6911B1-7489-4AC6-9665-2E7FD63120F3}"
+	ProjectSection(SolutionItems) = preProject
 		.github\CONTRIBUTING.md = .github\CONTRIBUTING.md
 		.github\ISSUE_TEMPLATE.md = .github\ISSUE_TEMPLATE.md
 		LICENSE = LICENSE
 		.github\PULL_REQUEST_TEMPLATE.md = .github\PULL_REQUEST_TEMPLATE.md
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{F139537C-2B14-4ACC-8EF0-1CC75D068D7B}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
 	EndProjectSection
 EndProject
 Global
@@ -36,6 +46,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40B13988-6E1D-434D-8B4E-0991F12817FF} = {6BBD56DD-B075-48D8-ABCC-3151F0C4B3E6}
+		{FC6911B1-7489-4AC6-9665-2E7FD63120F3} = {6BBD56DD-B075-48D8-ABCC-3151F0C4B3E6}
+		{F139537C-2B14-4ACC-8EF0-1CC75D068D7B} = {6BBD56DD-B075-48D8-ABCC-3151F0C4B3E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C87DC50D-188D-4C74-9FB4-B508C12556AD}
