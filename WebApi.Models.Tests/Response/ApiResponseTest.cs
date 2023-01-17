@@ -103,5 +103,32 @@ namespace WebApi.Models.Tests.Response
             Assert.Equal("property", errors.Errors.First().Property);
             Assert.Empty(response.Headers);
         }
+
+        [Fact]
+        public static void BadGateway_Should_Return_BadGatewayResponse()
+        {
+            // arrange & act
+            var response = ApiResponse.BadGateway();
+
+            // assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.BadGateway, response.StatusCode);
+            Assert.Null(response.Content);
+            Assert.Empty(response.Headers);
+        }
+
+        [Fact]
+        public static void BadGateway_Should_Return_BadGatewayResponse_With_Content()
+        {
+            // arrange & act
+            var response = ApiResponse.BadGateway("test");
+
+            // assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.BadGateway, response.StatusCode);
+            Assert.NotNull(response.Content);
+            Assert.Equal("test", response.Content.ToString());
+            Assert.Empty(response.Headers);
+        }
     }
 }

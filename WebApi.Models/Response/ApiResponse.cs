@@ -70,5 +70,14 @@ namespace WebApi.Models.Response
                 Content = ErrorsResponse.WithSingleError(message, property)
             };
         }
+
+        public static ApiResponse BadGateway(object content = null)
+        {
+            return new ApiResponse
+            {
+                Content = content,
+                StatusCode = HttpStatusCode.BadGateway
+            };
+        }
     }
 }
